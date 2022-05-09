@@ -1,4 +1,7 @@
+Assume mnenomic in phrase.prv
 ```
+cat phrase.prv | $HOME/cnode/cardano-address key from-recovery-phrase Shelley > root.xsk
+
 $HOME/cnode/cardano-address key child 1852H/1815H/0H/0/0 < root.xsk > payment.xsk
 $HOME/cnode/cardano-cli key convert-cardano-address-key --shelley-payment-key --signing-key-file payment.xsk --out-file payment.skey
 
