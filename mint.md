@@ -23,3 +23,10 @@ $HOME/cnode/cardano-cli key non-extended-key --extended-verification-key-file st
 testnet="--testnet-magic 1097911063"
 $HOME/cnode/cardano-cli address build --payment-verification-key-file payment.vkey --stake-verification-key stake.vkey $testnet > testpayment.addr
 ```
+Policy Keys - Using Account 3
+```
+$HOME/cnode/cardano-address key child 1852H/1815H/2H/0/0 < root.xsk > policy.xsk
+$HOME/cnode/cardano-cli key convert-cardano-address-key --shelley-payment-key --signing-key-file policy.xsk --out-file policy.skey
+$HOME/cnode/cardano-cli key verification-key --signing-key-file policy.skey --verification-key-file policy.evkey
+$HOME/cnode/cardano-cli key non-extended-key --extended-verification-key-file policy.evkey --verification-key-file policy.vkey
+```
